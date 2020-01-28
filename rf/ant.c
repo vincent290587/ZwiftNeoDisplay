@@ -66,12 +66,12 @@ static void ant_evt_bs (ant_evt_t * p_ant_evt)
         const ant_fec_message_layout_t * p_fec_message_payload = (ant_fec_message_layout_t *)p_ant_evt->message.ANT_MESSAGE_aucPayload;
         if (p_fec_message_payload->page_number == 51) {
 
-            ant_fec_disp_evt_handler(p_ant_evt, &m_fec_profile);
+            //ant_fec_disp_evt_handler(p_ant_evt, &m_fec_profile);
 
             LOG_WARNING("FEC rx page: 0x%02X %u", p_ant_evt->message.ANT_MESSAGE_ucMesgID, p_fec_message_payload->page_number);
 
-        	uint16_t grade_slope = m_fec_profile.page_51.grade_slope;
-        	float f_grade = (float)((int32_t)grade_slope * ANT_FEC_PAGE51_SLOPE_LSB - 200);
+        	//uint16_t grade_slope = m_fec_profile.page_51.grade_slope;
+        	//float f_grade = (float)((int32_t)grade_slope * ANT_FEC_PAGE51_SLOPE_LSB - 200);
 
         	//data_dispatcher__feed_target_slope(ZWIFT_SLOPE_FACTOR * f_grade);
 
@@ -81,9 +81,11 @@ static void ant_evt_bs (ant_evt_t * p_ant_evt)
         } else if (p_fec_message_payload->page_number == 25) {
 
             ant_fec_disp_evt_handler(p_ant_evt, &m_fec_profile);
-        }
 
+            LOG_WARNING("FEC rx page: 0x%02X %u", p_ant_evt->message.ANT_MESSAGE_ucMesgID, p_fec_message_payload->page_number);
 
+			model_dispatch_sensors_update(m_fec_profile.page_25.inst_power);
+		}
 	} break;
 	case EVENT_RX_FAIL:
 		break;
@@ -113,7 +115,7 @@ static void ant_evt_bs (ant_evt_t * p_ant_evt)
  *
  * @param[in] p_ant_evt  ANT stack event.
  */
-void ant_evt_handler(ant_evt_t * p_ant_evt, void * p_context)
+static void ant_evt_handler(ant_evt_t * p_ant_evt, void * p_context)
 {
 	W_SYSVIEW_RecordEnterISR();
 

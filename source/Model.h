@@ -23,7 +23,7 @@ extern "C" {
 
 void model_input_virtual_uart(char c);
 
-void model_dispatch_sensors_update(void);
+void model_dispatch_sensors_update(uint16_t power);
 
 void perform_system_tasks(void);
 
