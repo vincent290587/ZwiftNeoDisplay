@@ -42,7 +42,7 @@ INC_FOLDERS += \
 include $(PROJ_DIR)/Makefile.files
 
 include $(PROJ_DIR)/ble.files
-  
+
 # Libraries common to all targets
 LIB_FILES += -lm -lstdc++
 
@@ -63,6 +63,8 @@ CFLAGS += -DUSE_SVIEW=0 -DNRF_LOG_ENABLED=0 -DUSE_RTT=1
 CFLAGS += -DUSE_APP_CONFIG
 CFLAGS += -DNRF52840
 CFLAGS += -DNRF52840_XXAA
+CFLAGS += -DAPP_TIMER_V2
+CFLAGS += -DAPP_TIMER_V2_RTC1_ENABLED
 CFLAGS += -DSOFTDEVICE_PRESENT
 CFLAGS += -DCONFIG_NFCT_PINS_AS_GPIOS
 CFLAGS += -DCONFIG_GPIO_AS_PINRESET
@@ -71,7 +73,6 @@ CFLAGS += -D__HEAP_SIZE=2048
 #CFLAGS += -DBLE_STACK_SUPPORT_REQD
 CFLAGS += -DANT_STACK_SUPPORT_REQD
 CFLAGS += -DNRF_SD_BLE_API_VERSION=6
-CFLAGS += -DSWI_DISABLE0
 #CFLAGS += -DFPU_INTERRUPT_MODE
 CFLAGS += -DNRF_PWR_MGMT_CONFIG_FPU_SUPPORT_ENABLED=1
 CFLAGS += -DS340
@@ -79,7 +80,7 @@ CFLAGS += -DFLOAT_ABI_HARD
 CFLAGS += -mcpu=cortex-m4 -DARM_MATH_CM4 -fsingle-precision-constant
 CFLAGS += -Wdouble-promotion -Wfloat-conversion
 CFLAGS += -mthumb -mabi=aapcs
-CFLAGS += -Wall 
+CFLAGS += -Wall
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 # keep every function in separate section, this allows linker to discard unused ones
 CFLAGS += -ffunction-sections -fdata-sections -fno-strict-aliasing
@@ -103,7 +104,6 @@ ASMFLAGS += -D__HEAP_SIZE=2048
 #ASMFLAGS += -DBLE_STACK_SUPPORT_REQD
 ASMFLAGS += -DANT_STACK_SUPPORT_REQD
 ASMFLAGS += -DNRF_SD_BLE_API_VERSION=6
-ASMFLAGS += -DSWI_DISABLE0
 ASMFLAGS += -DS340
 
 # Linker flags
@@ -146,7 +146,7 @@ flash: $(OUTPUT_DIRECTORY)/nrf52840_xxaa.hex
 # Flash softdevice
 flash_softdevice:
 	@echo Flashing
-	nrfjprog --program $(SDK_ROOT)/$(SOFTDEVICE) -f nrf52 --sectorerase 
+	nrfjprog --program $(SDK_ROOT)/$(SOFTDEVICE) -f nrf52 --sectorerase
 #	nrfjprog --reset -f nrf52
 
 settings:
@@ -174,7 +174,7 @@ SDK_CONFIG_FILE_ANT := ../config/sdk_config_ant.h
 CMSIS_CONFIG_TOOL := $(SDK_ROOT)/external_tools/cmsisconfig/CMSIS_Configuration_Wizard.jar
 sdk_config:
 	java -jar $(CMSIS_CONFIG_TOOL) $(SDK_CONFIG_FILE)
-	
+
 sdk_config_ant:
 	java -jar $(CMSIS_CONFIG_TOOL) $(SDK_CONFIG_FILE_ANT)
 

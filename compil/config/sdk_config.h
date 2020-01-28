@@ -76,6 +76,40 @@
 #define NRF_BLE_GATT_ENABLED 1
 #endif
 
+// <e> NRF_BLE_GQ_ENABLED - nrf_ble_gq - BLE GATT Queue Module
+//==========================================================
+#ifndef NRF_BLE_GQ_ENABLED
+#define NRF_BLE_GQ_ENABLED 1
+#endif
+
+// <o> NRF_BLE_GQ_QUEUE_SIZE - Queue size for BLE GATT Queue module.
+#ifndef NRF_BLE_GQ_QUEUE_SIZE
+#define NRF_BLE_GQ_QUEUE_SIZE 8
+#endif
+
+// <o> NRF_BLE_GQ_DATAPOOL_ELEMENT_SIZE - Default size of a single element in the pool of memory objects.
+#ifndef NRF_BLE_GQ_DATAPOOL_ELEMENT_SIZE
+#define NRF_BLE_GQ_DATAPOOL_ELEMENT_SIZE 20
+#endif
+
+// <o> NRF_BLE_GQ_DATAPOOL_ELEMENT_COUNT - Default number of elements in the pool of memory objects.
+#ifndef NRF_BLE_GQ_DATAPOOL_ELEMENT_COUNT
+#define NRF_BLE_GQ_DATAPOOL_ELEMENT_COUNT 8
+#endif
+
+// <o> NRF_BLE_GQ_GATTC_WRITE_MAX_DATA_LEN - Maximal size of the data inside GATTC write request (in bytes).
+#ifndef NRF_BLE_GQ_GATTC_WRITE_MAX_DATA_LEN
+#define NRF_BLE_GQ_GATTC_WRITE_MAX_DATA_LEN 2
+#endif
+
+// <o> NRF_BLE_GQ_GATTS_HVX_MAX_DATA_LEN - Maximal size of the data inside GATTC notification or indication request (in bytes).
+#ifndef NRF_BLE_GQ_GATTS_HVX_MAX_DATA_LEN
+#define NRF_BLE_GQ_GATTS_HVX_MAX_DATA_LEN 16
+#endif
+
+// </e>
+
+
 // <q> BLE_DTM_ENABLED  - ble_dtm - Module for testing RF/PHY using DTM commands
 
 
@@ -102,6 +136,104 @@
 
 // </e>
 
+// <e> NRF_BLE_SCAN_ENABLED - nrf_ble_scan - Scanning Module
+//==========================================================
+#ifndef NRF_BLE_SCAN_ENABLED
+#define NRF_BLE_SCAN_ENABLED 1
+#endif
+// <o> NRF_BLE_SCAN_BUFFER - Data length for an advertising set.
+#ifndef NRF_BLE_SCAN_BUFFER
+#define NRF_BLE_SCAN_BUFFER 31
+#endif
+
+// <o> NRF_BLE_SCAN_NAME_MAX_LEN - Maximum size for the name to search in the advertisement report.
+#ifndef NRF_BLE_SCAN_NAME_MAX_LEN
+#define NRF_BLE_SCAN_NAME_MAX_LEN 32
+#endif
+
+// <o> NRF_BLE_SCAN_SHORT_NAME_MAX_LEN - Maximum size of the short name to search for in the advertisement report.
+#ifndef NRF_BLE_SCAN_SHORT_NAME_MAX_LEN
+#define NRF_BLE_SCAN_SHORT_NAME_MAX_LEN 32
+#endif
+
+// <o> NRF_BLE_SCAN_SCAN_INTERVAL - Scanning interval. Determines the scan interval in units of 0.625 millisecond.
+#ifndef NRF_BLE_SCAN_SCAN_INTERVAL
+#define NRF_BLE_SCAN_SCAN_INTERVAL 160
+#endif
+
+// <o> NRF_BLE_SCAN_SCAN_DURATION - Duration of a scanning session in units of 10 ms. Range: 0x0001 - 0xFFFF (10 ms to 10.9225 ms). If set to 0x0000, the scanning continues until it is explicitly disabled.
+#ifndef NRF_BLE_SCAN_SCAN_DURATION
+#define NRF_BLE_SCAN_SCAN_DURATION 0
+#endif
+
+// <o> NRF_BLE_SCAN_SCAN_WINDOW - Scanning window. Determines the scanning window in units of 0.625 millisecond.
+#ifndef NRF_BLE_SCAN_SCAN_WINDOW
+#define NRF_BLE_SCAN_SCAN_WINDOW 80
+#endif
+
+// <o> NRF_BLE_SCAN_MIN_CONNECTION_INTERVAL - Determines minimum connection interval in milliseconds.
+#ifndef NRF_BLE_SCAN_MIN_CONNECTION_INTERVAL
+#define NRF_BLE_SCAN_MIN_CONNECTION_INTERVAL 7.5
+#endif
+
+// <o> NRF_BLE_SCAN_MAX_CONNECTION_INTERVAL - Determines maximum connection interval in milliseconds.
+#ifndef NRF_BLE_SCAN_MAX_CONNECTION_INTERVAL
+#define NRF_BLE_SCAN_MAX_CONNECTION_INTERVAL 30
+#endif
+
+// <o> NRF_BLE_SCAN_SLAVE_LATENCY - Determines the slave latency in counts of connection events.
+#ifndef NRF_BLE_SCAN_SLAVE_LATENCY
+#define NRF_BLE_SCAN_SLAVE_LATENCY 0
+#endif
+
+// <o> NRF_BLE_SCAN_SUPERVISION_TIMEOUT - Determines the supervision time-out in units of 10 millisecond.
+#ifndef NRF_BLE_SCAN_SUPERVISION_TIMEOUT
+#define NRF_BLE_SCAN_SUPERVISION_TIMEOUT 4000
+#endif
+
+// <o> NRF_BLE_SCAN_SCAN_PHY  - PHY to scan on.
+
+// <0=> BLE_GAP_PHY_AUTO
+// <1=> BLE_GAP_PHY_1MBPS
+// <2=> BLE_GAP_PHY_2MBPS
+// <4=> BLE_GAP_PHY_CODED
+// <255=> BLE_GAP_PHY_NOT_SET
+
+#ifndef NRF_BLE_SCAN_SCAN_PHY
+#define NRF_BLE_SCAN_SCAN_PHY 0
+#endif
+
+// <e> NRF_BLE_SCAN_FILTER_ENABLE - Enabling filters for the Scanning Module.
+//==========================================================
+#ifndef NRF_BLE_SCAN_FILTER_ENABLE
+#define NRF_BLE_SCAN_FILTER_ENABLE 1
+#endif
+// <o> NRF_BLE_SCAN_UUID_CNT - Number of filters for UUIDs.
+#ifndef NRF_BLE_SCAN_UUID_CNT
+#define NRF_BLE_SCAN_UUID_CNT 2
+#endif
+
+// <o> NRF_BLE_SCAN_NAME_CNT - Number of name filters.
+#ifndef NRF_BLE_SCAN_NAME_CNT
+#define NRF_BLE_SCAN_NAME_CNT 1
+#endif
+
+// <o> NRF_BLE_SCAN_SHORT_NAME_CNT - Number of short name filters.
+#ifndef NRF_BLE_SCAN_SHORT_NAME_CNT
+#define NRF_BLE_SCAN_SHORT_NAME_CNT 0
+#endif
+
+// <o> NRF_BLE_SCAN_ADDRESS_CNT - Number of address filters.
+#ifndef NRF_BLE_SCAN_ADDRESS_CNT
+#define NRF_BLE_SCAN_ADDRESS_CNT 0
+#endif
+
+// <o> NRF_BLE_SCAN_APPEARANCE_CNT - Number of appearance filters.
+#ifndef NRF_BLE_SCAN_APPEARANCE_CNT
+#define NRF_BLE_SCAN_APPEARANCE_CNT 0
+#endif
+
+// </e>
 
 // <e> NRF_BLE_SCAN_ENABLED - nrf_ble_scan - Scanning Module
 //==========================================================
@@ -221,7 +353,7 @@
 #endif
 
 // <q> PM_CENTRAL_ENABLED  - Enable/disable central-specific Peer Manager functionality.
- 
+
 
 // <i> Enable/disable central-specific Peer Manager functionality.
 
@@ -264,14 +396,14 @@
 #endif
 
 // <q> BLE_ANS_C_ENABLED  - ble_ans_c - Alert Notification Service Client
- 
+
 
 #ifndef BLE_ANS_C_ENABLED
 #define BLE_ANS_C_ENABLED 0
 #endif
 
 // <q> BLE_BAS_C_ENABLED  - ble_bas_c - Battery Service Client
- 
+
 
 #ifndef BLE_BAS_C_ENABLED
 #define BLE_BAS_C_ENABLED 0
@@ -307,29 +439,29 @@
 
 // <0=> Default
 // <1=> Black
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef BLE_BAS_CONFIG_INFO_COLOR
 #define BLE_BAS_CONFIG_INFO_COLOR 0
 #endif
 
 // <o> BLE_BAS_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef BLE_BAS_CONFIG_DEBUG_COLOR
 #define BLE_BAS_CONFIG_DEBUG_COLOR 0
@@ -420,28 +552,28 @@
 #define BLE_IAS_CONFIG_LOG_ENABLED 0
 #endif
 // <o> BLE_IAS_CONFIG_LOG_LEVEL  - Default Severity level
- 
-// <0=> Off 
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
-// <4=> Debug 
+
+// <0=> Off
+// <1=> Error
+// <2=> Warning
+// <3=> Info
+// <4=> Debug
 
 #ifndef BLE_IAS_CONFIG_LOG_LEVEL
 #define BLE_IAS_CONFIG_LOG_LEVEL 3
 #endif
 
 // <o> BLE_IAS_CONFIG_INFO_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef BLE_IAS_CONFIG_INFO_COLOR
 #define BLE_IAS_CONFIG_INFO_COLOR 0
@@ -468,7 +600,7 @@
 // </e>
 
 // <q> BLE_LBS_C_ENABLED  - ble_lbs_c - Nordic LED Button Service Client
- 
+
 
 #ifndef BLE_LBS_C_ENABLED
 #define BLE_LBS_C_ENABLED 0
@@ -489,7 +621,7 @@
 #endif
 
 // <q> BLE_NUS_C_ENABLED  - ble_nus_c - Nordic UART Central Service
- 
+
 
 #ifndef BLE_NUS_C_ENABLED
 #define BLE_NUS_C_ENABLED 1
@@ -506,44 +638,44 @@
 #define BLE_NUS_CONFIG_LOG_ENABLED 0
 #endif
 // <o> BLE_NUS_CONFIG_LOG_LEVEL  - Default Severity level
- 
-// <0=> Off 
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
-// <4=> Debug 
+
+// <0=> Off
+// <1=> Error
+// <2=> Warning
+// <3=> Info
+// <4=> Debug
 
 #ifndef BLE_NUS_CONFIG_LOG_LEVEL
 #define BLE_NUS_CONFIG_LOG_LEVEL 3
 #endif
 
 // <o> BLE_NUS_CONFIG_INFO_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef BLE_NUS_CONFIG_INFO_COLOR
 #define BLE_NUS_CONFIG_INFO_COLOR 0
 #endif
 
 // <o> BLE_NUS_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef BLE_NUS_CONFIG_DEBUG_COLOR
 #define BLE_NUS_CONFIG_DEBUG_COLOR 0
@@ -554,21 +686,21 @@
 // </e>
 
 // <q> BLE_RSCS_C_ENABLED  - ble_rscs_c - Running Speed and Cadence Client
- 
+
 
 #ifndef BLE_RSCS_C_ENABLED
 #define BLE_RSCS_C_ENABLED 0
 #endif
 
 // <q> BLE_RSCS_ENABLED  - ble_rscs - Running Speed and Cadence Service
- 
+
 
 #ifndef BLE_RSCS_ENABLED
 #define BLE_RSCS_ENABLED 0
 #endif
 
 // <q> BLE_TPS_ENABLED  - ble_tps - TX Power Service
- 
+
 
 #ifndef BLE_TPS_ENABLED
 #define BLE_TPS_ENABLED 0
@@ -586,7 +718,7 @@
 #define NRF_MPU_ENABLED 1
 #endif
 // <q> NRF_MPU_CLI_CMDS  - Enable CLI commands specific to the module
- 
+
 
 #ifndef NRF_MPU_CLI_CMDS
 #define NRF_MPU_CLI_CMDS 0
@@ -600,7 +732,7 @@
 #define NRF_STACK_GUARD_ENABLED 0
 #endif
 // <o> NRF_STACK_GUARD_CONFIG_SIZE  - Size of stack guard
- 
+
 // <5=> 32 bytes
 // <6=> 64 bytes
 // <7=> 128 bytes
@@ -649,21 +781,21 @@
 #define NRF_CRYPTO_BACKEND_CC310_BL_ENABLED 0
 #endif
 // <q> NRF_CRYPTO_BACKEND_CC310_BL_ECC_SECP224R1_ENABLED  - Enable the secp224r1 elliptic curve support using CC310_BL.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_CC310_BL_ECC_SECP224R1_ENABLED
 #define NRF_CRYPTO_BACKEND_CC310_BL_ECC_SECP224R1_ENABLED 0
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_BL_ECC_SECP256R1_ENABLED  - Enable the secp256r1 elliptic curve support using CC310_BL.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_CC310_BL_ECC_SECP256R1_ENABLED
 #define NRF_CRYPTO_BACKEND_CC310_BL_ECC_SECP256R1_ENABLED 1
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_BL_HASH_SHA256_ENABLED  - CC310_BL SHA-256 hash functionality.
- 
+
 
 // <i> CC310_BL backend implementation for hardware-accelerated SHA-256.
 
@@ -681,7 +813,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_BL_HASH_AUTOMATIC_RAM_BUFFER_ENABLED  - nrf_cc310_bl buffers to RAM before running hash operation
- 
+
 
 // <i> Enabling this makes hashing of addresses in FLASH range possible. Size of buffer allocated for hashing is set by NRF_CRYPTO_BACKEND_CC310_BL_HASH_AUTOMATIC_RAM_BUFFER_SIZE
 
@@ -697,7 +829,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_BL_ECC_LITTLE_ENDIAN_ENABLED  - Enable non-standard little endian byte order in nrf_cc310_bl ECC functions.
- 
+
 
 // <i> This affects parameters for all nrf_cc310_bl ECC APIs (raw keys, signature, digest). Only for use in nRF SDK DFU!
 
@@ -715,21 +847,21 @@
 #define NRF_CRYPTO_BACKEND_CC310_ENABLED 0
 #endif
 // <q> NRF_CRYPTO_BACKEND_CC310_AES_CBC_ENABLED  - Enable the AES CBC mode using CC310.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_CC310_AES_CBC_ENABLED
 #define NRF_CRYPTO_BACKEND_CC310_AES_CBC_ENABLED 1
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_AES_CTR_ENABLED  - Enable the AES CTR mode using CC310.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_CC310_AES_CTR_ENABLED
 #define NRF_CRYPTO_BACKEND_CC310_AES_CTR_ENABLED 1
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_AES_ECB_ENABLED  - Enable the AES ECB mode using CC310.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_CC310_AES_ECB_ENABLED
 #define NRF_CRYPTO_BACKEND_CC310_AES_ECB_ENABLED 1
@@ -743,21 +875,21 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_AES_CMAC_ENABLED  - Enable the AES CMAC mode using CC310.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_CC310_AES_CMAC_ENABLED
 #define NRF_CRYPTO_BACKEND_CC310_AES_CMAC_ENABLED 1
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_AES_CCM_ENABLED  - Enable the AES CCM mode using CC310.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_CC310_AES_CCM_ENABLED
 #define NRF_CRYPTO_BACKEND_CC310_AES_CCM_ENABLED 1
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_AES_CCM_STAR_ENABLED  - Enable the AES CCM* mode using CC310.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_CC310_AES_CCM_STAR_ENABLED
 #define NRF_CRYPTO_BACKEND_CC310_AES_CCM_STAR_ENABLED 1
@@ -785,7 +917,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_ECC_SECP192R1_ENABLED  - Enable the secp192r1 elliptic curve support using CC310.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_CC310_ECC_SECP192R1_ENABLED
 #define NRF_CRYPTO_BACKEND_CC310_ECC_SECP192R1_ENABLED 1
@@ -799,14 +931,14 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_ECC_SECP256R1_ENABLED  - Enable the secp256r1 elliptic curve support using CC310.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_CC310_ECC_SECP256R1_ENABLED
 #define NRF_CRYPTO_BACKEND_CC310_ECC_SECP256R1_ENABLED 1
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_ECC_SECP384R1_ENABLED  - Enable the secp384r1 elliptic curve support using CC310.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_CC310_ECC_SECP384R1_ENABLED
 #define NRF_CRYPTO_BACKEND_CC310_ECC_SECP384R1_ENABLED 1
@@ -848,7 +980,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_HASH_SHA256_ENABLED  - CC310 SHA-256 hash functionality.
- 
+
 
 // <i> CC310 backend implementation for hardware-accelerated SHA-256.
 
@@ -857,7 +989,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_HASH_SHA512_ENABLED  - CC310 SHA-512 hash functionality
- 
+
 
 // <i> CC310 backend implementation for SHA-512 (in software).
 
@@ -866,7 +998,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_HMAC_SHA256_ENABLED  - CC310 HMAC using SHA-256
- 
+
 
 // <i> CC310 backend implementation for HMAC using hardware-accelerated SHA-256.
 
@@ -884,7 +1016,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_CC310_RNG_ENABLED  - Enable RNG support using CC310.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_CC310_RNG_ENABLED
 #define NRF_CRYPTO_BACKEND_CC310_RNG_ENABLED 1
@@ -912,14 +1044,14 @@
 #define NRF_CRYPTO_BACKEND_MBEDTLS_ENABLED 0
 #endif
 // <q> NRF_CRYPTO_BACKEND_MBEDTLS_AES_CBC_ENABLED  - Enable the AES CBC mode mbed TLS.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_MBEDTLS_AES_CBC_ENABLED
 #define NRF_CRYPTO_BACKEND_MBEDTLS_AES_CBC_ENABLED 1
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_MBEDTLS_AES_CTR_ENABLED  - Enable the AES CTR mode using mbed TLS.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_MBEDTLS_AES_CTR_ENABLED
 #define NRF_CRYPTO_BACKEND_MBEDTLS_AES_CTR_ENABLED 1
@@ -933,14 +1065,14 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_MBEDTLS_AES_ECB_ENABLED  - Enable the AES ECB mode using mbed TLS.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_MBEDTLS_AES_ECB_ENABLED
 #define NRF_CRYPTO_BACKEND_MBEDTLS_AES_ECB_ENABLED 1
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_MBEDTLS_AES_CBC_MAC_ENABLED  - Enable the AES CBC MAC mode using mbed TLS.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_MBEDTLS_AES_CBC_MAC_ENABLED
 #define NRF_CRYPTO_BACKEND_MBEDTLS_AES_CBC_MAC_ENABLED 1
@@ -954,14 +1086,14 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_MBEDTLS_AES_CCM_ENABLED  - Enable the AES CCM mode using mbed TLS.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_MBEDTLS_AES_CCM_ENABLED
 #define NRF_CRYPTO_BACKEND_MBEDTLS_AES_CCM_ENABLED 1
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_MBEDTLS_AES_GCM_ENABLED  - Enable the AES GCM mode using mbed TLS.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_MBEDTLS_AES_GCM_ENABLED
 #define NRF_CRYPTO_BACKEND_MBEDTLS_AES_GCM_ENABLED 1
@@ -986,7 +1118,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_MBEDTLS_ECC_SECP256R1_ENABLED  - Enable secp256r1 (NIST 256-bit) curve
- 
+
 
 // <i> Enable this setting if you need secp256r1 (NIST 256-bit) support using MBEDTLS
 
@@ -1022,7 +1154,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_MBEDTLS_ECC_SECP224K1_ENABLED  - Enable secp224k1 (Koblitz 224-bit) curve
- 
+
 
 // <i> Enable this setting if you need secp224k1 (Koblitz 224-bit) support using MBEDTLS
 
@@ -1031,7 +1163,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_MBEDTLS_ECC_SECP256K1_ENABLED  - Enable secp256k1 (Koblitz 256-bit) curve
- 
+
 
 // <i> Enable this setting if you need secp256k1 (Koblitz 256-bit) support using MBEDTLS
 
@@ -1040,7 +1172,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_MBEDTLS_ECC_BP256R1_ENABLED  - Enable bp256r1 (Brainpool 256-bit) curve
- 
+
 
 // <i> Enable this setting if you need bp256r1 (Brainpool 256-bit) support using MBEDTLS
 
@@ -1049,7 +1181,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_MBEDTLS_ECC_BP384R1_ENABLED  - Enable bp384r1 (Brainpool 384-bit) curve
- 
+
 
 // <i> Enable this setting if you need bp384r1 (Brainpool 384-bit) support using MBEDTLS
 
@@ -1067,7 +1199,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_MBEDTLS_ECC_CURVE25519_ENABLED  - Enable Curve25519 curve
- 
+
 
 // <i> Enable this setting if you need Curve25519 support using MBEDTLS
 
@@ -1076,7 +1208,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_MBEDTLS_HASH_SHA256_ENABLED  - Enable mbed TLS SHA-256 hash functionality.
- 
+
 
 // <i> mbed TLS backend implementation for SHA-256.
 
@@ -1085,7 +1217,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_MBEDTLS_HASH_SHA512_ENABLED  - Enable mbed TLS SHA-512 hash functionality.
- 
+
 
 // <i> mbed TLS backend implementation for SHA-512.
 
@@ -1119,7 +1251,7 @@
 #define NRF_CRYPTO_BACKEND_MICRO_ECC_ENABLED 0
 #endif
 // <q> NRF_CRYPTO_BACKEND_MICRO_ECC_ECC_SECP192R1_ENABLED  - Enable secp192r1 (NIST 192-bit) curve
- 
+
 
 // <i> Enable this setting if you need secp192r1 (NIST 192-bit) support using micro-ecc
 
@@ -1128,7 +1260,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_MICRO_ECC_ECC_SECP224R1_ENABLED  - Enable secp224r1 (NIST 224-bit) curve
- 
+
 
 // <i> Enable this setting if you need secp224r1 (NIST 224-bit) support using micro-ecc
 
@@ -1137,7 +1269,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_MICRO_ECC_ECC_SECP256R1_ENABLED  - Enable secp256r1 (NIST 256-bit) curve
- 
+
 
 // <i> Enable this setting if you need secp256r1 (NIST 256-bit) support using micro-ecc
 
@@ -1182,7 +1314,7 @@
 #define NRF_CRYPTO_BACKEND_NRF_HW_RNG_ENABLED 0
 #endif
 // <q> NRF_CRYPTO_BACKEND_NRF_HW_RNG_MBEDTLS_CTR_DRBG_ENABLED  - Enable mbed TLS CTR-DRBG algorithm.
- 
+
 
 // <i> Enable mbed TLS CTR-DRBG standardized by NIST (NIST SP 800-90A Rev. 1). The nRF HW RNG is used as an entropy source for seeding.
 
@@ -1209,7 +1341,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_NRF_SW_HASH_LITTLE_ENDIAN_DIGEST_ENABLED  - nRF SW hash outputs digests in little endian
- 
+
 
 // <i> Makes the nRF SH hash functions output digests in little endian format. Only for use in nRF SDK DFU!
 
@@ -1227,14 +1359,14 @@
 #define NRF_CRYPTO_BACKEND_OBERON_ENABLED 0
 #endif
 // <q> NRF_CRYPTO_BACKEND_OBERON_CHACHA_POLY_ENABLED  - Enable the CHACHA-POLY mode using Oberon.
- 
+
 
 #ifndef NRF_CRYPTO_BACKEND_OBERON_CHACHA_POLY_ENABLED
 #define NRF_CRYPTO_BACKEND_OBERON_CHACHA_POLY_ENABLED 1
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_OBERON_ECC_SECP256R1_ENABLED  - Enable secp256r1 curve
- 
+
 
 // <i> Enable this setting if you need secp256r1 curve support using Oberon library
 
@@ -1279,7 +1411,7 @@
 #endif
 
 // <q> NRF_CRYPTO_BACKEND_OBERON_HMAC_SHA256_ENABLED  - Oberon HMAC using SHA-256
- 
+
 
 // <i> Oberon backend implementation for HMAC using SHA-256.
 
@@ -1323,7 +1455,7 @@
 #define NRF_DFU_BLE_BUTTONLESS_SUPPORTS_BONDS 0
 #endif
 
-// </h> 
+// </h>
 //==========================================================
 
 // </h>
@@ -1335,7 +1467,7 @@
 #define COMP_ENABLED 0
 #endif
 // <o> COMP_CONFIG_REF  - Reference voltage
- 
+
 // <0=> Internal 1.2V
 // <1=> Internal 1.8V
 // <2=> Internal 2.4V
@@ -1347,7 +1479,7 @@
 #endif
 
 // <o> COMP_CONFIG_MAIN_MODE  - Main mode
- 
+
 // <0=> Single ended
 // <1=> Differential
 
@@ -1356,7 +1488,7 @@
 #endif
 
 // <o> COMP_CONFIG_SPEED_MODE  - Speed mode
- 
+
 // <0=> Low power
 // <1=> Normal
 // <2=> High speed
@@ -1366,7 +1498,7 @@
 #endif
 
 // <o> COMP_CONFIG_HYST  - Hystheresis
- 
+
 // <0=> No
 // <1=> 50mV
 
@@ -1375,7 +1507,7 @@
 #endif
 
 // <o> COMP_CONFIG_ISOURCE  - Current Source
- 
+
 // <0=> Off
 // <1=> 2.5 uA
 // <2=> 5 uA
@@ -1386,7 +1518,7 @@
 #endif
 
 // <o> COMP_CONFIG_INPUT  - Analog input
- 
+
 // <0=> 0
 // <1=> 1
 // <2=> 2
@@ -1401,7 +1533,7 @@
 #endif
 
 // <o> COMP_CONFIG_IRQ_PRIORITY  - Interrupt priority
- 
+
 
 // <i> Priorities 0,2 (nRF51) and 0,1,4,5 (nRF52) are reserved for SoftDevice
 // <0=> 0 (highest)
@@ -1420,7 +1552,7 @@
 // </e>
 
 // <q> EGU_ENABLED  - nrf_drv_swi - SWI(EGU) peripheral driver - legacy layer
- 
+
 
 #ifndef EGU_ENABLED
 #define EGU_ENABLED 0
@@ -1474,7 +1606,7 @@
 #endif
 
 // <o> I2S_CONFIG_FORMAT  - Format
- 
+
 // <0=> I2S
 // <1=> Aligned
 
@@ -1483,7 +1615,7 @@
 #endif
 
 // <o> I2S_CONFIG_ALIGN  - Alignment
- 
+
 // <0=> Left
 // <1=> Right
 
@@ -1492,7 +1624,7 @@
 #endif
 
 // <o> I2S_CONFIG_SWIDTH  - Sample width (bits)
- 
+
 // <0=> 8
 // <1=> 16
 // <2=> 24
@@ -1576,44 +1708,44 @@
 #define I2S_CONFIG_LOG_ENABLED 0
 #endif
 // <o> I2S_CONFIG_LOG_LEVEL  - Default Severity level
- 
-// <0=> Off 
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
-// <4=> Debug 
+
+// <0=> Off
+// <1=> Error
+// <2=> Warning
+// <3=> Info
+// <4=> Debug
 
 #ifndef I2S_CONFIG_LOG_LEVEL
 #define I2S_CONFIG_LOG_LEVEL 3
 #endif
 
 // <o> I2S_CONFIG_INFO_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef I2S_CONFIG_INFO_COLOR
 #define I2S_CONFIG_INFO_COLOR 0
 #endif
 
 // <o> I2S_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef I2S_CONFIG_DEBUG_COLOR
 #define I2S_CONFIG_DEBUG_COLOR 0
@@ -1629,7 +1761,7 @@
 #define LPCOMP_ENABLED 0
 #endif
 // <o> LPCOMP_CONFIG_REFERENCE  - Reference voltage
- 
+
 // <0=> Supply 1/8
 // <1=> Supply 2/8
 // <2=> Supply 3/8
@@ -1653,7 +1785,7 @@
 #endif
 
 // <o> LPCOMP_CONFIG_DETECTION  - Detection
- 
+
 // <0=> Crossing
 // <1=> Up
 // <2=> Down
@@ -1663,7 +1795,7 @@
 #endif
 
 // <o> LPCOMP_CONFIG_INPUT  - Analog input
- 
+
 // <0=> 0
 // <1=> 1
 // <2=> 2
@@ -1685,7 +1817,7 @@
 #endif
 
 // <o> LPCOMP_CONFIG_IRQ_PRIORITY  - Interrupt priority
- 
+
 
 // <i> Priorities 0,2 (nRF51) and 0,1,4,5 (nRF52) are reserved for SoftDevice
 // <0=> 0 (highest)
@@ -1746,7 +1878,7 @@
 #define NRFX_CLOCK_ENABLED 1
 #endif
 // <o> NRFX_CLOCK_CONFIG_LF_SRC  - LF Clock Source
- 
+
 // <0=> RC
 // <1=> XTAL
 // <2=> Synth
@@ -1758,7 +1890,7 @@
 #endif
 
 // <o> NRFX_CLOCK_CONFIG_IRQ_PRIORITY  - Interrupt priority
- 
+
 // <0=> 0 (highest)
 // <1=> 1
 // <2=> 2
@@ -1778,44 +1910,44 @@
 #define NRFX_CLOCK_CONFIG_LOG_ENABLED 0
 #endif
 // <o> NRFX_CLOCK_CONFIG_LOG_LEVEL  - Default Severity level
- 
-// <0=> Off 
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
-// <4=> Debug 
+
+// <0=> Off
+// <1=> Error
+// <2=> Warning
+// <3=> Info
+// <4=> Debug
 
 #ifndef NRFX_CLOCK_CONFIG_LOG_LEVEL
 #define NRFX_CLOCK_CONFIG_LOG_LEVEL 3
 #endif
 
 // <o> NRFX_CLOCK_CONFIG_INFO_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_CLOCK_CONFIG_INFO_COLOR
 #define NRFX_CLOCK_CONFIG_INFO_COLOR 0
 #endif
 
 // <o> NRFX_CLOCK_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_CLOCK_CONFIG_DEBUG_COLOR
 #define NRFX_CLOCK_CONFIG_DEBUG_COLOR 0
@@ -1831,7 +1963,7 @@
 #define NRFX_COMP_ENABLED 0
 #endif
 // <o> NRFX_COMP_CONFIG_REF  - Reference voltage
- 
+
 // <0=> Internal 1.2V
 // <1=> Internal 1.8V
 // <2=> Internal 2.4V
@@ -1843,7 +1975,7 @@
 #endif
 
 // <o> NRFX_COMP_CONFIG_MAIN_MODE  - Main mode
- 
+
 // <0=> Single ended
 // <1=> Differential
 
@@ -1852,7 +1984,7 @@
 #endif
 
 // <o> NRFX_COMP_CONFIG_SPEED_MODE  - Speed mode
- 
+
 // <0=> Low power
 // <1=> Normal
 // <2=> High speed
@@ -1871,8 +2003,8 @@
 #endif
 
 // <o> NRFX_COMP_CONFIG_ISOURCE  - Current Source
- 
-// <0=> Off 
+
+// <0=> Off
 // <1=> 2.5 uA
 // <2=> 5 uA
 // <3=> 10 uA
@@ -1882,7 +2014,7 @@
 #endif
 
 // <o> NRFX_COMP_CONFIG_INPUT  - Analog input
- 
+
 // <0=> 0
 // <1=> 1
 // <2=> 2
@@ -1897,7 +2029,7 @@
 #endif
 
 // <o> NRFX_COMP_CONFIG_IRQ_PRIORITY  - Interrupt priority
- 
+
 // <0=> 0 (highest)
 // <1=> 1
 // <2=> 2
@@ -1917,44 +2049,44 @@
 #define NRFX_COMP_CONFIG_LOG_ENABLED 0
 #endif
 // <o> NRFX_COMP_CONFIG_LOG_LEVEL  - Default Severity level
- 
-// <0=> Off 
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
-// <4=> Debug 
+
+// <0=> Off
+// <1=> Error
+// <2=> Warning
+// <3=> Info
+// <4=> Debug
 
 #ifndef NRFX_COMP_CONFIG_LOG_LEVEL
 #define NRFX_COMP_CONFIG_LOG_LEVEL 3
 #endif
 
 // <o> NRFX_COMP_CONFIG_INFO_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_COMP_CONFIG_INFO_COLOR
 #define NRFX_COMP_CONFIG_INFO_COLOR 0
 #endif
 
 // <o> NRFX_COMP_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_COMP_CONFIG_DEBUG_COLOR
 #define NRFX_COMP_CONFIG_DEBUG_COLOR 0
@@ -1995,44 +2127,44 @@
 #define NRFX_GPIOTE_CONFIG_LOG_ENABLED 0
 #endif
 // <o> NRFX_GPIOTE_CONFIG_LOG_LEVEL  - Default Severity level
- 
-// <0=> Off 
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
-// <4=> Debug 
+
+// <0=> Off
+// <1=> Error
+// <2=> Warning
+// <3=> Info
+// <4=> Debug
 
 #ifndef NRFX_GPIOTE_CONFIG_LOG_LEVEL
 #define NRFX_GPIOTE_CONFIG_LOG_LEVEL 3
 #endif
 
 // <o> NRFX_GPIOTE_CONFIG_INFO_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_GPIOTE_CONFIG_INFO_COLOR
 #define NRFX_GPIOTE_CONFIG_INFO_COLOR 0
 #endif
 
 // <o> NRFX_GPIOTE_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_GPIOTE_CONFIG_DEBUG_COLOR
 #define NRFX_GPIOTE_CONFIG_DEBUG_COLOR 0
@@ -2081,7 +2213,7 @@
 #endif
 
 // <o> NRFX_I2S_CONFIG_MASTER  - Mode
- 
+
 // <0=> Master
 // <1=> Slave
 
@@ -2090,7 +2222,7 @@
 #endif
 
 // <o> NRFX_I2S_CONFIG_FORMAT  - Format
- 
+
 // <0=> I2S
 // <1=> Aligned
 
@@ -2108,7 +2240,7 @@
 #endif
 
 // <o> NRFX_I2S_CONFIG_SWIDTH  - Sample width (bits)
- 
+
 // <0=> 8
 // <1=> 16
 // <2=> 24
@@ -2118,7 +2250,7 @@
 #endif
 
 // <o> NRFX_I2S_CONFIG_CHANNELS  - Channels
- 
+
 // <0=> Stereo
 // <1=> Left
 // <2=> Right
@@ -2128,7 +2260,7 @@
 #endif
 
 // <o> NRFX_I2S_CONFIG_MCK_SETUP  - MCK behavior
- 
+
 // <0=> Disabled
 // <2147483648=> 32MHz/2
 // <1342177280=> 32MHz/3
@@ -2154,7 +2286,7 @@
 #endif
 
 // <o> NRFX_I2S_CONFIG_RATIO  - MCK/LRCK ratio
- 
+
 // <0=> 32x
 // <1=> 48x
 // <2=> 64x
@@ -2190,44 +2322,44 @@
 #define NRFX_I2S_CONFIG_LOG_ENABLED 0
 #endif
 // <o> NRFX_I2S_CONFIG_LOG_LEVEL  - Default Severity level
- 
-// <0=> Off 
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
-// <4=> Debug 
+
+// <0=> Off
+// <1=> Error
+// <2=> Warning
+// <3=> Info
+// <4=> Debug
 
 #ifndef NRFX_I2S_CONFIG_LOG_LEVEL
 #define NRFX_I2S_CONFIG_LOG_LEVEL 3
 #endif
 
 // <o> NRFX_I2S_CONFIG_INFO_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_I2S_CONFIG_INFO_COLOR
 #define NRFX_I2S_CONFIG_INFO_COLOR 0
 #endif
 
 // <o> NRFX_I2S_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_I2S_CONFIG_DEBUG_COLOR
 #define NRFX_I2S_CONFIG_DEBUG_COLOR 0
@@ -2243,7 +2375,7 @@
 #define NRFX_LPCOMP_ENABLED 0
 #endif
 // <o> NRFX_LPCOMP_CONFIG_REFERENCE  - Reference voltage
- 
+
 // <0=> Supply 1/8
 // <1=> Supply 2/8
 // <2=> Supply 3/8
@@ -2321,42 +2453,42 @@
 // <o> NRFX_LPCOMP_CONFIG_LOG_LEVEL  - Default Severity level
 
 // <0=> Off
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
-// <4=> Debug 
+// <1=> Error
+// <2=> Warning
+// <3=> Info
+// <4=> Debug
 
 #ifndef NRFX_LPCOMP_CONFIG_LOG_LEVEL
 #define NRFX_LPCOMP_CONFIG_LOG_LEVEL 3
 #endif
 
 // <o> NRFX_LPCOMP_CONFIG_INFO_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_LPCOMP_CONFIG_INFO_COLOR
 #define NRFX_LPCOMP_CONFIG_INFO_COLOR 0
 #endif
 
 // <o> NRFX_LPCOMP_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_LPCOMP_CONFIG_DEBUG_COLOR
 #define NRFX_LPCOMP_CONFIG_DEBUG_COLOR 0
@@ -2420,44 +2552,44 @@
 #define NRFX_PDM_CONFIG_LOG_ENABLED 0
 #endif
 // <o> NRFX_PDM_CONFIG_LOG_LEVEL  - Default Severity level
- 
-// <0=> Off 
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
-// <4=> Debug 
+
+// <0=> Off
+// <1=> Error
+// <2=> Warning
+// <3=> Info
+// <4=> Debug
 
 #ifndef NRFX_PDM_CONFIG_LOG_LEVEL
 #define NRFX_PDM_CONFIG_LOG_LEVEL 3
 #endif
 
 // <o> NRFX_PDM_CONFIG_INFO_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_PDM_CONFIG_INFO_COLOR
 #define NRFX_PDM_CONFIG_INFO_COLOR 0
 #endif
 
 // <o> NRFX_PDM_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_PDM_CONFIG_DEBUG_COLOR
 #define NRFX_PDM_CONFIG_DEBUG_COLOR 0
@@ -2473,7 +2605,7 @@
 #define NRFX_POWER_ENABLED 1
 #endif
 // <o> NRFX_POWER_CONFIG_IRQ_PRIORITY  - Interrupt priority
- 
+
 // <0=> 0 (highest)
 // <1=> 1
 // <2=> 2
@@ -2488,7 +2620,7 @@
 #endif
 
 // <q> NRFX_POWER_CONFIG_DEFAULT_DCDCEN  - The default configuration of main DCDC regulator
- 
+
 
 // <i> This settings means only that components for DCDC regulator are installed and it can be enabled.
 
@@ -2497,7 +2629,7 @@
 #endif
 
 // <q> NRFX_POWER_CONFIG_DEFAULT_DCDCENHV  - The default configuration of High Voltage DCDC regulator
- 
+
 
 // <i> This settings means only that components for DCDC regulator are installed and it can be enabled.
 
@@ -2518,44 +2650,44 @@
 #define NRFX_PPI_CONFIG_LOG_ENABLED 0
 #endif
 // <o> NRFX_PPI_CONFIG_LOG_LEVEL  - Default Severity level
- 
-// <0=> Off 
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
-// <4=> Debug 
+
+// <0=> Off
+// <1=> Error
+// <2=> Warning
+// <3=> Info
+// <4=> Debug
 
 #ifndef NRFX_PPI_CONFIG_LOG_LEVEL
 #define NRFX_PPI_CONFIG_LOG_LEVEL 2
 #endif
 
 // <o> NRFX_PPI_CONFIG_INFO_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_PPI_CONFIG_INFO_COLOR
 #define NRFX_PPI_CONFIG_INFO_COLOR 0
 #endif
 
 // <o> NRFX_PPI_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_PPI_CONFIG_DEBUG_COLOR
 #define NRFX_PPI_CONFIG_DEBUG_COLOR 0
@@ -2571,7 +2703,7 @@
 #define NRFX_PWM_ENABLED 1
 #endif
 // <q> NRFX_PWM0_ENABLED  - Enable PWM0 instance
- 
+
 
 #ifndef NRFX_PWM0_ENABLED
 #define NRFX_PWM0_ENABLED 1
@@ -2585,14 +2717,14 @@
 #endif
 
 // <q> NRFX_PWM2_ENABLED  - Enable PWM2 instance
- 
+
 
 #ifndef NRFX_PWM2_ENABLED
 #define NRFX_PWM2_ENABLED 0
 #endif
 
 // <q> NRFX_PWM3_ENABLED  - Enable PWM3 instance
- 
+
 
 #ifndef NRFX_PWM3_ENABLED
 #define NRFX_PWM3_ENABLED 0
@@ -2642,7 +2774,7 @@
 #endif
 
 // <o> NRFX_PWM_DEFAULT_CONFIG_COUNT_MODE  - Count mode
- 
+
 // <0=> Up
 // <1=> Up and Down
 
@@ -2656,7 +2788,7 @@
 #endif
 
 // <o> NRFX_PWM_DEFAULT_CONFIG_LOAD_MODE  - Load mode
- 
+
 // <0=> Common
 // <1=> Grouped
 // <2=> Individual
@@ -2667,7 +2799,7 @@
 #endif
 
 // <o> NRFX_PWM_DEFAULT_CONFIG_STEP_MODE  - Step mode
- 
+
 // <0=> Auto
 // <1=> Triggered
 
@@ -2696,44 +2828,44 @@
 #define NRFX_PWM_CONFIG_LOG_ENABLED 0
 #endif
 // <o> NRFX_PWM_CONFIG_LOG_LEVEL  - Default Severity level
- 
-// <0=> Off 
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
-// <4=> Debug 
+
+// <0=> Off
+// <1=> Error
+// <2=> Warning
+// <3=> Info
+// <4=> Debug
 
 #ifndef NRFX_PWM_CONFIG_LOG_LEVEL
 #define NRFX_PWM_CONFIG_LOG_LEVEL 3
 #endif
 
 // <o> NRFX_PWM_CONFIG_INFO_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_PWM_CONFIG_INFO_COLOR
 #define NRFX_PWM_CONFIG_INFO_COLOR 0
 #endif
 
 // <o> NRFX_PWM_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_PWM_CONFIG_DEBUG_COLOR
 #define NRFX_PWM_CONFIG_DEBUG_COLOR 0
@@ -2749,7 +2881,7 @@
 #define NRFX_QDEC_ENABLED 0
 #endif
 // <o> NRFX_QDEC_CONFIG_REPORTPER  - Report period
- 
+
 // <0=> 10 Samples
 // <1=> 40 Samples
 // <2=> 80 Samples
@@ -2764,7 +2896,7 @@
 #endif
 
 // <o> NRFX_QDEC_CONFIG_SAMPLEPER  - Sample period
- 
+
 // <0=> 128 us
 // <1=> 256 us
 // <2=> 512 us
@@ -2805,7 +2937,7 @@
 #endif
 
 // <o> NRFX_QDEC_CONFIG_LEDPOL  - LED polarity
- 
+
 // <0=> Active low
 // <1=> Active high
 
@@ -2814,21 +2946,21 @@
 #endif
 
 // <q> NRFX_QDEC_CONFIG_DBFEN  - Debouncing enable
- 
+
 
 #ifndef NRFX_QDEC_CONFIG_DBFEN
 #define NRFX_QDEC_CONFIG_DBFEN 0
 #endif
 
 // <q> NRFX_QDEC_CONFIG_SAMPLE_INTEN  - Sample ready interrupt enable
- 
+
 
 #ifndef NRFX_QDEC_CONFIG_SAMPLE_INTEN
 #define NRFX_QDEC_CONFIG_SAMPLE_INTEN 0
 #endif
 
 // <o> NRFX_QDEC_CONFIG_IRQ_PRIORITY  - Interrupt priority
- 
+
 // <0=> 0 (highest)
 // <1=> 1
 // <2=> 2
@@ -2848,44 +2980,44 @@
 #define NRFX_QDEC_CONFIG_LOG_ENABLED 0
 #endif
 // <o> NRFX_QDEC_CONFIG_LOG_LEVEL  - Default Severity level
- 
-// <0=> Off 
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
-// <4=> Debug 
+
+// <0=> Off
+// <1=> Error
+// <2=> Warning
+// <3=> Info
+// <4=> Debug
 
 #ifndef NRFX_QDEC_CONFIG_LOG_LEVEL
 #define NRFX_QDEC_CONFIG_LOG_LEVEL 3
 #endif
 
 // <o> NRFX_QDEC_CONFIG_INFO_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_QDEC_CONFIG_INFO_COLOR
 #define NRFX_QDEC_CONFIG_INFO_COLOR 0
 #endif
 
 // <o> NRFX_QDEC_CONFIG_DEBUG_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NRFX_QDEC_CONFIG_DEBUG_COLOR
 #define NRFX_QDEC_CONFIG_DEBUG_COLOR 0
@@ -2989,7 +3121,7 @@
 #endif
 
 // <o> NRFX_QSPI_CONFIG_WRITEOC  - Number of data lines and opcode used for writing.
- 
+
 // <0=> PP
 // <1=> PP2O
 // <2=> PP4O
@@ -3009,7 +3141,7 @@
 #endif
 
 // <o> NRFX_QSPI_CONFIG_MODE  - SPI mode.
- 
+
 // <0=> Mode 0
 // <1=> Mode 1
 
@@ -3018,7 +3150,7 @@
 #endif
 
 // <o> NRFX_QSPI_CONFIG_FREQUENCY  - Frequency divider.
- 
+
 // <0=> 32MHz/1
 // <1=> 32MHz/2
 // <2=> 32MHz/3
@@ -3071,7 +3203,7 @@
 #endif
 
 // <o> NRFX_QSPI_CONFIG_IRQ_PRIORITY  - Interrupt priority
- 
+
 // <0=> 0 (highest)
 // <1=> 1
 // <2=> 2
@@ -3122,10 +3254,10 @@
 // <o> NRFX_RNG_CONFIG_LOG_LEVEL  - Default Severity level
 
 // <0=> Off
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
-// <4=> Debug 
+// <1=> Error
+// <2=> Warning
+// <3=> Info
+// <4=> Debug
 
 #ifndef NRFX_RNG_CONFIG_LOG_LEVEL
 #define NRFX_RNG_CONFIG_LOG_LEVEL 3
@@ -4604,7 +4736,7 @@
 // <e> PWM_ENABLED - nrf_drv_pwm - PWM peripheral driver - legacy layer
 //==========================================================
 #ifndef PWM_ENABLED
-#define PWM_ENABLED 0
+#define PWM_ENABLED 1
 #endif
 // <o> PWM_DEFAULT_CONFIG_OUT0_PIN - Out0 pin  <0-31>
 
@@ -5513,6 +5645,16 @@
 #ifndef APP_USBD_DEVICE_VER_MINOR
 #define APP_USBD_DEVICE_VER_MINOR 0
 #endif
+
+// <o> APP_USBD_DEVICE_VER_SUB - Sub-minor device version  <0-9>
+
+
+// <i> Sub-minor device version, will be converted automatically to BCD notation. Use just decimal values.
+
+#ifndef APP_USBD_DEVICE_VER_SUB
+#define APP_USBD_DEVICE_VER_SUB 0
+#endif
+
 
 // <q> APP_USBD_CONFIG_SELF_POWERED  - Self-powered device, as opposed to bus-powered.
 
@@ -6483,7 +6625,7 @@
 
 
 #ifndef NRF_SORTLIST_ENABLED
-#define NRF_SORTLIST_ENABLED 0
+#define NRF_SORTLIST_ENABLED 1
 #endif
 
 // <q> NRF_SPI_MNGR_ENABLED  - nrf_spi_mngr - SPI transaction manager
@@ -10858,11 +11000,11 @@
 #define NFC_T4T_HL_DETECTION_PROCEDURES_LOG_ENABLED 0
 #endif
 // <o> NFC_T4T_HL_DETECTION_PROCEDURES_LOG_LEVEL  - Default Severity level
- 
-// <0=> Off 
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
+
+// <0=> Off
+// <1=> Error
+// <2=> Warning
+// <3=> Info
 // <4=> Debug
 
 #ifndef NFC_T4T_HL_DETECTION_PROCEDURES_LOG_LEVEL
@@ -10870,16 +11012,16 @@
 #endif
 
 // <o> NFC_T4T_HL_DETECTION_PROCEDURES_INFO_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
-// <8=> White 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
+// <8=> White
 
 #ifndef NFC_T4T_HL_DETECTION_PROCEDURES_INFO_COLOR
 #define NFC_T4T_HL_DETECTION_PROCEDURES_INFO_COLOR 0
@@ -10910,27 +11052,27 @@
 #define NFC_T4T_TLV_BLOCK_PARSER_LOG_ENABLED 0
 #endif
 // <o> NFC_T4T_TLV_BLOCK_PARSER_LOG_LEVEL  - Default Severity level
- 
-// <0=> Off 
-// <1=> Error 
-// <2=> Warning 
-// <3=> Info 
-// <4=> Debug 
+
+// <0=> Off
+// <1=> Error
+// <2=> Warning
+// <3=> Info
+// <4=> Debug
 
 #ifndef NFC_T4T_TLV_BLOCK_PARSER_LOG_LEVEL
 #define NFC_T4T_TLV_BLOCK_PARSER_LOG_LEVEL 3
 #endif
 
 // <o> NFC_T4T_TLV_BLOCK_PARSER_INFO_COLOR  - ANSI escape code prefix.
- 
-// <0=> Default 
-// <1=> Black 
-// <2=> Red 
-// <3=> Green 
-// <4=> Yellow 
-// <5=> Blue 
-// <6=> Magenta 
-// <7=> Cyan 
+
+// <0=> Default
+// <1=> Black
+// <2=> Red
+// <3=> Green
+// <4=> Yellow
+// <5=> Blue
+// <6=> Magenta
+// <7=> Cyan
 // <8=> White
 
 #ifndef NFC_T4T_TLV_BLOCK_PARSER_INFO_COLOR
@@ -11006,7 +11148,7 @@
 #endif
 
 // <q> NRF_SDH_BLE_SERVICE_CHANGED  - Include the Service Changed characteristic in the Attribute Table.
- 
+
 
 #ifndef NRF_SDH_BLE_SERVICE_CHANGED
 #define NRF_SDH_BLE_SERVICE_CHANGED 0
@@ -11316,6 +11458,14 @@
 #define NRF_BLE_GATT_BLE_OBSERVER_PRIO 1
 #endif
 
+
+// <o> NRF_BLE_GQ_BLE_OBSERVER_PRIO
+// <i> Priority with which BLE events are dispatched to the GATT Queue module.
+
+#ifndef NRF_BLE_GQ_BLE_OBSERVER_PRIO
+#define NRF_BLE_GQ_BLE_OBSERVER_PRIO 1
+#endif
+
 // <o> NRF_BLE_QWR_BLE_OBSERVER_PRIO
 // <i> Priority with which BLE events are dispatched to the Queued writes module.
 
@@ -11347,7 +11497,7 @@
 // <i> This setting configures how Stack events are dispatched to the application.
 //==========================================================
 // <o> NRF_SDH_DISPATCH_MODEL
- 
+
 
 // <i> NRF_SDH_DISPATCH_MODEL_INTERRUPT: SoftDevice events are passed to the application from the interrupt context.
 // <i> NRF_SDH_DISPATCH_MODEL_APPSH: SoftDevice events are scheduled using @ref app_scheduler.
@@ -11367,7 +11517,7 @@
 
 //==========================================================
 // <o> NRF_SDH_CLOCK_LF_SRC  - SoftDevice clock source.
- 
+
 // <0=> NRF_CLOCK_LF_SRC_RC
 // <1=> NRF_CLOCK_LF_SRC_XTAL
 // <2=> NRF_CLOCK_LF_SRC_SYNTH
@@ -11390,7 +11540,7 @@
 #endif
 
 // <o> NRF_SDH_CLOCK_LF_ACCURACY  - External clock accuracy used in the LL to compute timing.
- 
+
 // <0=> NRF_CLOCK_LF_ACCURACY_250_PPM
 // <1=> NRF_CLOCK_LF_ACCURACY_500_PPM
 // <2=> NRF_CLOCK_LF_ACCURACY_150_PPM
@@ -11503,7 +11653,7 @@
 #define NRF_BLE_SCAN_OBSERVER_PRIO 1
 #endif
 
-// </h> 
+// </h>
 //==========================================================
 
 // </h>
@@ -11559,7 +11709,7 @@
 #define POWER_CONFIG_SOC_OBSERVER_PRIO 0
 #endif
 
-// </h> 
+// </h>
 //==========================================================
 
 // </h>
@@ -11588,7 +11738,7 @@
 
 // </e>
 
-// </h> 
+// </h>
 //==========================================================
 
 // <<< end of configuration section >>>
